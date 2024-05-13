@@ -47,15 +47,15 @@ public class EmployeeController {
 		return response;
 	}
 
-//	@GetMapping("get-emp-by-name/{fname}")
-//	public ResponseEntity<List<Employee>> getEmpName(@PathVariable(name = "fname") String firstName) {
-//		List<Employee> empList = employeeService.getEmployeeByFirstName(firstName);
-//		HttpStatus status = HttpStatus.OK;
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.add("message", "Employees data fetched successfully!");
-//		ResponseEntity<List<Employee>> response = new ResponseEntity<List<Employee>>(empList, headers, status);
-//		return response;
-//	}
+	@GetMapping("get-emp-by-name/{fname}")
+	public ResponseEntity<List<Employee>> getEmpName(@PathVariable(name = "fname") String empName) {
+		List<Employee> empList = employeeService.getEmployeeByFirstName(empName);
+		HttpStatus status = HttpStatus.OK;
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("message", "Employees data fetched successfully!");
+		ResponseEntity<List<Employee>> response = new ResponseEntity<List<Employee>>(empList, headers, status);
+		return response;
+	}
 
 	@PostMapping(path = "add-emp", produces = "application/json", consumes = "application/json")
 	public ResponseEntity<Employee> addEmp(@RequestBody Employee employee) {

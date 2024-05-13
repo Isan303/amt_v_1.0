@@ -47,17 +47,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 			return empOptional.get();
 	}
 
-//	@Override
-//	public List<Employee> getEmployeeByFirstName(String empName) {
-//		LOG.info(empName);
-//		List<Employee> empList = employeeRepository.findByFirstName(empName);
-//		if (empList.isEmpty()) {
-//			String errorMessage = "Employee with empName " + empName + " is not found!";
-//			LOG.warn(errorMessage);
-//			throw new EmployeeNotFoundException(errorMessage);
-//		}
-//		return empList;
-//	}
+	@Override
+	public List<Employee> getEmployeeByFirstName(String empName) {
+		LOG.info(empName);
+		List<Employee> empList = employeeRepository.findByEmpName(empName);
+		if (empList.isEmpty()) {
+			String errorMessage = "Employee with empName " + empName + " is not found!";
+			LOG.warn(errorMessage);
+			throw new EmployeeNotFoundException(errorMessage);
+		}
+		return empList;
+	}
 
 	@Override
 	public Employee addEmployee (Employee employee) {
