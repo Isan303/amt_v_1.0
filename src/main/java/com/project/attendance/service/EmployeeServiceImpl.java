@@ -14,7 +14,7 @@ import com.project.attendance.repository.EmployeeRepository;
 import com.project.attendance.model.Employee;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService {
+public abstract class EmployeeServiceImpl implements EmployeeService {
 
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
@@ -82,14 +82,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.deleteById(employeeId);
 		return empToBeDeleted;
 	}
-
-
+	
 
 }
 
 //package com.ibm.springboot.demo.service;
 //
-//import java.util.List;
+//import java.util.List;employeeRepository.findEmpByManagerId(empManagerId);
 //
 //import org.bson.types.ObjectId;
 //import org.slf4j.Logger;

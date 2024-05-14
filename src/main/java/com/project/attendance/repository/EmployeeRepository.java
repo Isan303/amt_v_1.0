@@ -13,7 +13,8 @@ import com.project.attendance.model.Employee;
 
 	
 //		public abstract List<Employee> findByFirstName(String empName);
-		 List<Employee> findByEmpName(String empName);
+		public abstract List<Employee> findByEmpName(String empName);
+//		public abstract List<Employee> findEmpByManagerId(String empManagerId);
 		
 
 

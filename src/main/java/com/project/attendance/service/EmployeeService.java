@@ -19,4 +19,6 @@ public interface EmployeeService {
 	public abstract Employee updateEmployee(Employee employee);
 
 	public abstract Employee deleteEmployee(String empId);
+	
+//	public abstract List<Employee> getByManagerId(String empManagerId);
 }
