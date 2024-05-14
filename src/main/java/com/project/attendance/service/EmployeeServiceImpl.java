@@ -14,7 +14,7 @@ import com.project.attendance.repository.EmployeeRepository;
 import com.project.attendance.model.Employee;
 
 @Service
-public abstract class EmployeeServiceImpl implements EmployeeService {
+public class EmployeeServiceImpl implements EmployeeService {
 
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
@@ -37,10 +37,10 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee getEmployeeById(String empId) {
-		Optional<Employee> empOptional = employeeRepository.findById(empId);
+	public Employee getEmployeeById(String employeeId) {
+		Optional<Employee> empOptional = employeeRepository.findById(employeeId);
 		if (empOptional.isEmpty()) {
-			String errorMessage = "Employee with the id " + empId + " is not found!";
+			String errorMessage = "Employee with the id " + employeeId + " is not found!";
 			LOG.warn(errorMessage);
 			throw new EmployeeNotFoundException(errorMessage);
 		} else
@@ -48,11 +48,11 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<Employee> getEmployeeByFirstName(String empName) {
-		LOG.info(empName);
-		List<Employee> empList = employeeRepository.findByEmpName(empName);
+	public List<Employee> getEmployeeByFirstName(String employeeName) {
+		LOG.info(employeeName);
+		List<Employee> empList = employeeRepository.findByEmployeeName(employeeName);
 		if (empList.isEmpty()) {
-			String errorMessage = "Employee with empName " + empName + " is not found!";
+			String errorMessage = "Employee with empName " + employeeName + " is not found!";
 			LOG.warn(errorMessage);
 			throw new EmployeeNotFoundException(errorMessage);
 		}
@@ -70,7 +70,7 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee updateEmployee(Employee employee) {
 		LOG.info(employee.toString());
-		this.getEmployeeById(employee.getEmpId());
+		this.getEmployeeById(employee.getEmployeeId());
 		// better code is needed? 
 		return employeeRepository.save(employee);
 	}
@@ -78,17 +78,41 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee deleteEmployee(String employeeId) {
 		LOG.info(employeeId);
-		Employee empToBeDeleted = this.getEmployeeById(employeeId);
+		Employee employeeToBeDeleted = this.getEmployeeById(employeeId);
 		employeeRepository.deleteById(employeeId);
-		return empToBeDeleted;
+		return employeeToBeDeleted;
+	}
+
+	@Override 
+	public List<Employee> getEmployeesByManagerId(String employeeManagerId) {
+		
+		List<Employee> employeeList = employeeRepository.findByEmployeeManagerId(employeeManagerId);
+		if (employeeList.isEmpty()) {
+			String errorMessage = "Employee with employeeName " + employeeManagerId + " is not found!";
+			LOG.warn(errorMessage);
+			throw new EmployeeNotFoundException(errorMessage);
+		}
+		return employeeList;
+
 	}
 	
+	@Override
+	public List<Employee> getEmployeesByTeamId(String employeeTeamId) {
+		
+		List<Employee> employeeList = employeeRepository.findByEmployeeTeamId(employeeTeamId);
+		if (employeeList.isEmpty()) {
+			String errorMessage = "Employee with employeeName " + employeeTeamId + " is not found!";
+			LOG.warn(errorMessage);
+			throw new EmployeeNotFoundException(errorMessage);
+		}
+		return employeeList;
 
+	}
 }
 
 //package com.ibm.springboot.demo.service;
 //
-//import java.util.List;employeeRepository.findEmpByManagerId(empManagerId);
+//import java.util.List;
 //
 //import org.bson.types.ObjectId;
 //import org.slf4j.Logger;

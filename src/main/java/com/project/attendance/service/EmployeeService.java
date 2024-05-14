@@ -10,15 +10,17 @@ public interface EmployeeService {
 
 	public abstract List<Employee> getAllEmployees();
 
-	public abstract Employee getEmployeeById(String empId);
+	public abstract Employee getEmployeeById(String employeeId);
 
-	public abstract List<Employee> getEmployeeByFirstName(String empName);
+	public abstract List<Employee> getEmployeeByFirstName(String employeeName);
 
 	public abstract Employee addEmployee(Employee employee);
 
 	public abstract Employee updateEmployee(Employee employee);
 
-	public abstract Employee deleteEmployee(String empId);
+	public abstract Employee deleteEmployee(String employeeId);
 	
-//	public abstract List<Employee> getByManagerId(String empManagerId);
+	public abstract List<Employee> getEmployeesByManagerId(String employeeManagerId);
+	
+	public abstract List<Employee> getEmployeesByTeamId(String employeeTeamId);
 }

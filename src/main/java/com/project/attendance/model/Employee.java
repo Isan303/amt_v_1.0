@@ -7,16 +7,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Employee {
 		
 		@Id
-		private String empId;
-		private String empName;
-		private Double empSalary;
-		private String empNumber;
-		private String empTeamId;
-		private String empManagerName;
-		private String empManagerId;
-		private String empRole;
-		private String empTeamName;
-		private Boolean empIsAdmin;
+		private String employeeId;
+		private String employeeName;
+		private Double employeeSalary;
+		private String employeeNumber;
+		private String employeeTeamId;
+		private String employeeManagerName;
+		private String employeeManagerId;
+		private String employeeRole;
+		private String employeeTeamName;
+		private Boolean employeeIsAdmin;
 		
 		
 		
@@ -27,84 +27,84 @@ public class Employee {
 		
 		
 		
-		public String getEmpId() {
-			return empId;
+		public String getEmployeeId() {
+			return employeeId;
 		}
 
 
 
-		public void setEmpId(String empId) {
-			this.empId = empId;
+		public void setEmployeeId(String employeeId) {
+			this.employeeId = employeeId;
 		}
 
 
 
-		public String getEmpName() {
-			return empName;
+		public String getEmployeeName() {
+			return employeeName;
 		}
-		public void setEmpName(String empName) {
-			this.empName = empName;
+		public void setEmployeeName(String employeeName) {
+			this.employeeName = employeeName;
 		}
 		
-		public Double getEmpSalary() {
-			return empSalary;
+		public Double getEmployeeSalary() {
+			return employeeSalary;
 		}
-		public void setEmpSalary(Double empSalary) {
-			this.empSalary = empSalary;
-		}
-		
-		public String getEmpNumber() {
-			return empNumber;
-		}
-		public void setEmpNumber(String empNumber) {
-			this.empNumber = empNumber;
+		public void setEmployeeSalary(Double employeeSalary) {
+			this.employeeSalary = employeeSalary;
 		}
 		
-		public String getEmpTeamId() {
-			return empTeamId;
+		public String getEmployeeNumber() {
+			return employeeNumber;
 		}
-		public void setEmpTeamId(String empTeamId) {
-			this.empTeamId = empTeamId;
-		}
-		
-		public String getEmpManagerName() {
-			return empManagerName;
-		}
-		public void setEmpManagerName(String empManagerName) {
-			this.empManagerName = empManagerName;
+		public void setEmployeeNumber(String employeeNumber) {
+			this.employeeNumber = employeeNumber;
 		}
 		
-		public String getEmpManagerId() {
-			return empManagerId;
+		public String getEmployeeTeamId() {
+			return employeeTeamId;
 		}
-		public void setEmpManagerId(String empManagerId) {
-			this.empManagerId = empManagerId;
+		public void setEmployeeTeamId(String employeeTeamId) {
+			this.employeeTeamId = employeeTeamId;
 		}
-		public String getEmpRole() {
-			return empRole;
+		
+		public String getEmployeeManagerName() {
+			return employeeManagerName;
 		}
-		public void setEmpRole(String empRole) {
-			this.empRole = empRole;
+		public void setEmployeeManagerName(String employeeManagerName) {
+			this.employeeManagerName = employeeManagerName;
 		}
-		public String getEmpTeamName() {
-			return empTeamName;
+		
+		public String getEmployeeManagerId() {
+			return employeeManagerId;
 		}
-		public void setEmpTeamName(String empTeamName) {
-			this.empTeamName = empTeamName;
+		public void setEmployeeManagerId(String employeeManagerId) {
+			this.employeeManagerId = employeeManagerId;
 		}
-		public Boolean getEmpIsAdmin() {
-			return empIsAdmin;
+		public String getEmployeeRole() {
+			return employeeRole;
 		}
-		public void setEmpIsAdmin(Boolean empIsAdmin) {
-			this.empIsAdmin = empIsAdmin;
+		public void setEmployeeRole(String employeeRole) {
+			this.employeeRole = employeeRole;
+		}
+		public String getEmployeeTeamName() {
+			return employeeTeamName;
+		}
+		public void setEmployeeTeamName(String employeeTeamName) {
+			this.employeeTeamName = employeeTeamName;
+		}
+		public Boolean getEmployeeIsAdmin() {
+			return employeeIsAdmin;
+		}
+		public void setEmployeeIsAdmin(Boolean employeeIsAdmin) {
+			this.employeeIsAdmin = employeeIsAdmin;
 		}
 
 		@Override
 		public String toString() {
-			return "Admin [empName=" + empName + ", empSalary=" + empSalary + ", empNumber=" + empNumber
-					+ ", empTeamId=" + empTeamId + ", empManagerName=" + empManagerName + ", empManagerId="
-					+ empManagerId + ", empRole=" + empRole + ", empTeamName=" + empTeamName + ", empIsAdmin="
-					+ empIsAdmin + "]";
+			return "Admin [employeeName=" + employeeName + ", employeeSalary=" + employeeSalary + ", employeeNumber=" + employeeNumber
+					+ ", employeeTeamId=" + employeeTeamId + ", employeeManagerName=" + employeeManagerName + ", employeeManagerId="
+					+ employeeManagerId + ", employeeRole=" + employeeRole + ", employeeTeamName=" + employeeTeamName + ", employeeIsAdmin="
+					+ employeeIsAdmin + "]";
 		}
 
 		

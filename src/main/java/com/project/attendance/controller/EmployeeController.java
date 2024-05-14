@@ -48,8 +48,8 @@ public class EmployeeController {
 	}
 
 	@GetMapping("get-emp-by-name/{fname}")
-	public ResponseEntity<List<Employee>> getEmpName(@PathVariable(name = "fname") String empName) {
-		List<Employee> empList = employeeService.getEmployeeByFirstName(empName);
+	public ResponseEntity<List<Employee>> getEmpName(@PathVariable(name = "fname") String employeeName) {
+		List<Employee> empList = employeeService.getEmployeeByFirstName(employeeName);
 		HttpStatus status = HttpStatus.OK;
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("message", "Employees data fetched successfully!");
@@ -70,7 +70,7 @@ public class EmployeeController {
 	@PutMapping(path = "update-emp/{eid}", produces = "application/json", consumes = "application/json")
 	public ResponseEntity<Employee> updateEmp(@PathVariable(name = "eid") String employeeId, @RequestBody Employee employee) {
 	    Employee existingEmployee = employeeService.getEmployeeById(employeeId);
-	    existingEmployee.setEmpName(employee.getEmpName());
+	    existingEmployee.setEmployeeName(employee.getEmployeeName());
 	    Employee updatedEmployee = employeeService.updateEmployee(existingEmployee);
 		HttpStatus status = HttpStatus.CREATED;
 	    HttpHeaders headers = new HttpHeaders();
@@ -87,6 +87,26 @@ public class EmployeeController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("message", "Employee added successfully!");
 		ResponseEntity<Employee> response = new ResponseEntity<Employee>(employeeToBeDeleted, headers, status);
+		return response;
+	}
+	
+	@GetMapping("get-emp-by-mangId/{eid}")
+	public ResponseEntity<List<Employee>> getEmpByManagerId(@PathVariable(name = "eid") String employeeManagerId) {
+		List<Employee> empList = employeeService.getEmployeesByManagerId(employeeManagerId);
+		HttpStatus status = HttpStatus.OK;
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("message", "Employees data fetched successfully!");
+		ResponseEntity<List<Employee>> response = new ResponseEntity<List<Employee>>(empList, headers, status);
+		return response;
+	}
+	
+	@GetMapping("get-emp-by-teamId/{eid}")
+	public ResponseEntity<List<Employee>> getEmpByTeamId(@PathVariable(name = "eid") String employeeTeamId) {
+		List<Employee> empList = employeeService.getEmployeesByTeamId(employeeTeamId);
+		HttpStatus status = HttpStatus.OK;
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("message", "Employees data fetched successfully!");
+		ResponseEntity<List<Employee>> response = new ResponseEntity<List<Employee>>(empList, headers, status);
 		return response;
 	}
 
