@@ -108,6 +108,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeList;
 
 	}
+	
+	@Override
+	public List<Employee> getEmployeesByTeamName(String employeeTeamName) {
+		LOG.info(employeeTeamName);
+		List<Employee> empList = employeeRepository.findByEmployeeTeamName(employeeTeamName);
+		if (empList.isEmpty()) {
+			String errorMessage = "Employee with empTeamName " + employeeTeamName + " is not found!";
+			LOG.warn(errorMessage);
+			throw new EmployeeNotFoundException(errorMessage);
+		}
+		return empList;
+	}
 }
 
 //package com.ibm.springboot.demo.service;

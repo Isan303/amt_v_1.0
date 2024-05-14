@@ -23,4 +23,8 @@ public interface EmployeeService {
 	public abstract List<Employee> getEmployeesByManagerId(String employeeManagerId);
 	
 	public abstract List<Employee> getEmployeesByTeamId(String employeeTeamId);
+
+	public abstract List<Employee> getEmployeesByTeamName(String employeeTeamName);
+	
+//	public abstract List<Employee> getEmployeesByTeamName(String employeeTeamName);
 }

@@ -71,6 +71,13 @@ public class EmployeeController {
 	public ResponseEntity<Employee> updateEmp(@PathVariable(name = "eid") String employeeId, @RequestBody Employee employee) {
 	    Employee existingEmployee = employeeService.getEmployeeById(employeeId);
 	    existingEmployee.setEmployeeName(employee.getEmployeeName());
+	    existingEmployee.setEmployeeSalary(employee.getEmployeeSalary());
+	    existingEmployee.setEmployeeTeamId(employee.getEmployeeTeamId());
+	    existingEmployee.setEmployeeManagerName(employee.getEmployeeManagerName());
+	    existingEmployee.setEmployeeManagerId(employee.getEmployeeManagerId());
+	    existingEmployee.setEmployeeRole(employee.getEmployeeRole());
+	    existingEmployee.setEmployeeTeamName(employee.getEmployeeTeamName());
+	    existingEmployee.setEmployeeIsAdmin(employee.getEmployeeIsAdmin());
 	    Employee updatedEmployee = employeeService.updateEmployee(existingEmployee);
 		HttpStatus status = HttpStatus.CREATED;
 	    HttpHeaders headers = new HttpHeaders();
@@ -103,6 +110,16 @@ public class EmployeeController {
 	@GetMapping("get-emp-by-teamId/{eid}")
 	public ResponseEntity<List<Employee>> getEmpByTeamId(@PathVariable(name = "eid") String employeeTeamId) {
 		List<Employee> empList = employeeService.getEmployeesByTeamId(employeeTeamId);
+		HttpStatus status = HttpStatus.OK;
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("message", "Employees data fetched successfully!");
+		ResponseEntity<List<Employee>> response = new ResponseEntity<List<Employee>>(empList, headers, status);
+		return response;
+	}
+	
+	@GetMapping("get-emp-by-teamname/{tname}")
+	public ResponseEntity<List<Employee>> getEmpByTeamName(@PathVariable(name = "tname") String employeeTeamName) {
+		List<Employee> empList = employeeService.getEmployeesByTeamName(employeeTeamName);
 		HttpStatus status = HttpStatus.OK;
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("message", "Employees data fetched successfully!");

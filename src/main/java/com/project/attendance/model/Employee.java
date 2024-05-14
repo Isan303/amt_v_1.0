@@ -10,11 +10,11 @@ public class Employee {
 		private String employeeId;
 		private String employeeName;
 		private Double employeeSalary;
-		private String employeeNumber;
 		private String employeeTeamId;
 		private String employeeManagerName;
 		private String employeeManagerId;
 		private String employeeRole;
+		private String employeePhone;
 		private String employeeTeamName;
 		private Boolean employeeIsAdmin;
 		
@@ -24,9 +24,7 @@ public class Employee {
 			super();
 			// TODO Auto-generated constructor stub
 		}
-		
-		
-		
+				
 		public String getEmployeeId() {
 			return employeeId;
 		}
@@ -52,13 +50,20 @@ public class Employee {
 		public void setEmployeeSalary(Double employeeSalary) {
 			this.employeeSalary = employeeSalary;
 		}
+	
 		
-		public String getEmployeeNumber() {
-			return employeeNumber;
+		public String getEmployeePhone() {
+			return employeePhone;
 		}
-		public void setEmployeeNumber(String employeeNumber) {
-			this.employeeNumber = employeeNumber;
+
+
+
+		public void setEmployeePhone(String employeePhone) {
+			this.employeePhone = employeePhone;
 		}
+
+		
+		
 		
 		public String getEmployeeTeamId() {
 			return employeeTeamId;
@@ -101,7 +106,7 @@ public class Employee {
 
 		@Override
 		public String toString() {
-			return "Admin [employeeName=" + employeeName + ", employeeSalary=" + employeeSalary + ", employeeNumber=" + employeeNumber
+			return "Admin [employeeName=" + employeeName + ", employeeSalary=" + employeeSalary + ", employeePhone=" + employeePhone
 					+ ", employeeTeamId=" + employeeTeamId + ", employeeManagerName=" + employeeManagerName + ", employeeManagerId="
 					+ employeeManagerId + ", employeeRole=" + employeeRole + ", employeeTeamName=" + employeeTeamName + ", employeeIsAdmin="
 					+ employeeIsAdmin + "]";
